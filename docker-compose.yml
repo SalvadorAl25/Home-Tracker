@@ -1,0 +1,27 @@
+version: "3"
+services:
+    odoo:
+        image: odoo:14.0
+        platform: linux/amd64
+        container_name: odoo_14
+        depends_on:
+            - postgresql
+        tty: true
+        stdin_open: true
+        ports:
+            - "8069:8069"
+        volumes:
+            - ./addons:/mnt/extra-addons
+            - ./conf:/etc/odoo
+        environment:
+            - HOST=postgres
+        restart: always
+    postgresql:
+        image: postgres:12.0
+        container_name: postgres
+        ports:
+            - "5432:5432"
+        environment:
+            - POSTGRES_DB=postgres
+            - POSTGRES_PASSWORD=odoo
+            - POSTGRES_USER=odoo

@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    
+        <record id="maintenance_n_services_view_tree" model="ir.ui.view">
+            <field name="name">maintenance.n.services.view.tree</field>
+            <field name="model">maintenance.n.services</field>
+            <field name="arch" type="xml">
+                <tree string="Maintenance and Services">
+                    <field name="man_serv_name" />
+                    <field name="frequency" />
+                    <field name="date_program" />
+                    <field name="state" />
+                    <field name="type_maintenance_id" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="maintenance_n_services_view_form" model="ir.ui.view">
+            <field name="name">maintenance.n.services.view.form</field>
+            <field name="model">maintenance.n.services</field>
+            <field name="arch" type="xml">
+                <form string="Maintenance and Services">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="" />
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1 class="mt0">
+                                <field name="man_serv_name" placeholder="Name Maintenance or Service" />
+                            </h1>
+                        </div>
+                        <br/>
+                        <group>
+                            <group>
+                                <field name="property_id" />
+                                <field name="charge_applies" />
+                                <field name="date_program" />
+                                <field name="complete" />
+                                <field name="cost" />
+                                <field name="frequency" />
+                            </group>
+                            <group>
+                                <field name="supplier_id" />
+                                <field name="description" />
+                                <field name="note" />
+                                <field name="type_maintenance_id" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="maintenance_n_services_action" model="ir.actions.act_window">
+            <field name="name">Maintenance and Services</field>
+            <field name="res_model">maintenance.n.services</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="maintenance_n_services_menu"
+            name="Maintenance and Services"
+            action="maintenance_n_services_action"
+            parent="catalogs_menu"
+            sequence="3"/>
+    
+    </data>
+    
+
+</odoo>

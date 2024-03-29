@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <record id="tenant_view_tree" model="ir.ui.view">
+            <field name="name">tenant.view.tree</field>
+            <field name="model">tenant</field>
+            <field name="arch" type="xml">
+                <tree string="Tenants">
+                    <field name="tenant_name" />
+                    <field name="tenant_last_name" />
+                    <field name="tenant_mother_last_name" />
+                    <field name="rfc" />
+                    <field name="curp" optional="show"/>
+                    <field name="tax_regimen_id" optional="show"/>
+                    <field name="company_id" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="tenant_view_form" model="ir.ui.view">
+            <field name="name">tenant.view.form</field>
+            <field name="model">tenant</field>
+            <field name="arch" type="xml">
+                <form string="Tenant">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1 class="mt0">
+                                <field name="partner_id" placeholder="Contact" />
+                            </h1>
+                        </div>
+                        <br/>
+                        <group>
+                            <group>
+                                <field name="tenant_name" />
+                                <field name="tenant_last_name" />
+                                <field name="tenant_mother_last_name" />
+                                <field name="curp" />
+                                <field name="identification" />
+                            </group>
+                            <group>
+                                <field name="rfc" />
+                                <field name="tax_regimen_id" />
+                                <field name="occupation" />
+                                <field name="company_id" />
+                                <field name="" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Contracts">
+                                <field name="contracts_ids"></field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="tenant_action" model="ir.actions.act_window">
+            <field name="name">Tenants</field>
+            <field name="res_model">tenant</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    
+        <menuitem
+            id="tenants_menu"
+            name="Tenants"
+            action="tenant_action"
+            parent="contracts_menu"
+            sequence="2"/>
+    
+    </data>
+    
+
+</odoo>

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    
+        <record id="catalog_maintenance_view_tree" model="ir.ui.view">
+            <field name="name">catalog.maintenance.view.tree</field>
+            <field name="model">catalog.maintenance</field>
+            <field name="arch" type="xml">
+                <tree string="Catalog Maintenance">
+                    <field name="maint_name" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="catalog_maintenance_view_form" model="ir.ui.view">
+            <field name="name">catalog.maintenance.view.form</field>
+            <field name="model">catalog.maintenance</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <div class="oe_title">
+                            <h1 class="mt0">
+                                <field name="maint_name" placeholder="Maintenance Name" />
+                            </h1>
+                        </div>
+                        <group>
+                            <field name="suppliers_ids">
+                                <!-- <tree>
+                                    <field name="" />
+                                </tree> -->
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="catalog_maintenance_action" model="ir.actions.act_window">
+            <field name="name">Catalog Maintenance</field>
+            <field name="res_model">catalog.maintenance</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="catalog_maintenance_menu"
+            name="name"
+            action="catalog_maintenance_action"
+            parent="catalogs_menu"
+            sequence="1"/>
+    
+    </data>
+    
+
+</odoo>

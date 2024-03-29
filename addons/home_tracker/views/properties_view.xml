@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    
+        <record id="property_view_tree" model="ir.ui.view">
+            <field name="name">property.view.tree</field>
+            <field name="model">property</field>
+            <field name="arch" type="xml">
+                <tree string="Property">
+                    <field name="owner_property_id" />
+                    <field name="admin_property_id" />
+                    <field name="name_prop" />
+                    <field name="country_id" />
+                    <field name="state_id" />
+                    <field name="cp" optional="show"/>
+                    <field name="state" optional="show"/>
+                    <field name="type_property" optional="show"/>
+                    <field name="category_property" optional="show"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="property_view_kanban" model="ir.ui.view">
+            <field name="name">property.view.kanban</field>
+            <field name="model">property</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_mobile">
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="oe_kanban_card">
+                                    <field name="owner_property_id" />
+                                    <field name="admin_property_id" />
+                                    <field name="name_prop" />
+                                    <field name="country_id" />
+                                    <field name="state_id" />
+                                    <field name="cp" optional="show"/>
+                                    <field name="state" optional="show"/>
+                                    <field name="type_property" optional="show"/>
+                                    <field name="category_property" optional="show"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="property_view_form" model="ir.ui.view">
+            <field name="name">property.view.form</field>
+            <field name="model">property</field>
+            <field name="arch" type="xml">
+                <form string="Property">
+                    <header>
+                        <field name="state" widget="statusbar" statusbar_visible="" />
+                    </header>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1 class="mt0">
+                                <field name="name_prop" placeholder="Property Name" />
+                            </h1>
+                        </div>
+                        <br/>
+                        <group string="Involved">
+                            <group>
+                                <field name="owner_property_id" />
+                            </group>
+                            <group>
+                                <field name="admin_property_id" />
+                            </group>
+                        </group>
+                        <group>
+                            <group string="Address">
+                                <field name="street" />
+                                <field name="street_2" />
+                                <label string="" for="num_ext"/>
+                                <div class="o_address_format oe_left">
+                                    <label for="num_ext"/>
+                                    <field name="num_ext" class="col-3 mr-1"/>
+                                    <label for="num_int"/>
+                                    <field name="num_int" class="col-3"/>
+                                </div>
+                                <field name="colony" />
+                                <field name="city_id" />
+                                <field name="state_id" />
+                                <field name="country_id" />
+                                <field name="cp" />
+                                <field name="maps" />
+                            </group>
+                            <group string="Characteristics">
+                                <field name="edifices" />
+                                <label string="Dimensions" for="weight"/>
+                                <div class="o_address_format oe_left">
+                                    <label for="weight"/>
+                                    <field name="weight" class="col-3 mr-1"/>
+                                    <label for="height"/>
+                                    <field name="height" class="col-3"/>
+                                </div>
+                                <field name="price_p_rent" />
+                                <field name="active" />
+                                <field name="type_property" />
+                                <field name="furnished" />
+                                <field name="quantity_brooms" />
+                                <field name="quantity_bathrooms" />
+                                <field name="quantity_parkings" />
+                                <field name="category_property" />
+                                <field name="dir_facade" />
+                                <field name="url_video" />
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Attached Files">
+                                <field name="plans" />
+                                <field name="photos" />
+                                <field name="documents" />
+                            </page>
+                            <page string="Property Insurance">
+                                <field name="property_insurance_ids"></field>
+                            </page>
+                            <page string="Maintenance '&amp;' Services">
+                                <field name="maintenance_n_services_ids"></field>
+                            </page>
+                            <page string="Contracts">
+                                <field name="contracts_ids"></field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="property_action" model="ir.actions.act_window">
+            <field name="name">Properties</field>
+            <field name="res_model">property</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+    
+    </data>
+    
+
+</odoo>

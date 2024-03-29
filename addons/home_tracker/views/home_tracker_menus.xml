@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+
+        <menuitem
+            id="properties_menu"
+            name="Properties"
+            action="property_action"
+            parent="home_tracker_menu"
+            sequence="1"/>
+
+        <menuitem
+            id="contracts_menu"
+            name="Contracts"
+            action="action_id"
+            parent="home_tracker_menu"
+            sequence="2"/>
+
+        <menuitem
+            id="catalogs_menu"
+            name="Catalogs"
+            parent="home_tracker_menu"
+            sequence="3"/>
+    
+        <menuitem
+            id="home_tracker_menu"
+            name="Home Tracker"
+            sequence="2"/>
+    
+    </data>
+    
+
+</odoo>

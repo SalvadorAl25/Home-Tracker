@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data>
+    
+        <record id="penalties_view_tree" model="ir.ui.view">
+            <field name="name">penalties.view.tree</field>
+            <field name="model">penalties</field>
+            <field name="arch" type="xml">
+                <tree string="Penalties">
+                    <field name="type_pay_pen" />
+                    <field name="value" />
+                    <field name="mount" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="penalties_view_form" model="ir.ui.view">
+            <field name="name">penalties.view.form</field>
+            <field name="model">penalties</field>
+            <field name="arch" type="xml">
+                <form string="Penalties">
+                    <sheet>
+                        <group>
+                            <field name="type_pay_pen" />
+                            <field name="value" />
+                            <field name="mount" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="penalties_action" model="ir.actions.act_window">
+            <field name="name">Penalties</field>
+            <field name="res_model">penalties</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem
+            id="penalties_menu"
+            name="Penalties"
+            action="penalties_action"
+            parent="catalogs_menu"
+            sequence="4"/>
+    
+    </data>
+    
+
+</odoo>
