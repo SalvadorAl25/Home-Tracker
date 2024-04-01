@@ -31,6 +31,6 @@ class MaintenanceNServices(models.Model):
     state = fields.Selection(selection=STATES, string='State')
 
     supplier_id = fields.Many2one(comodel_name='res.partner', string='Supplier')
-    property_id = fields.Many2one(comodel_name='property', string='Property')
+    property_id = fields.Many2one(comodel_name='hometracker.property', string='Property')
     type_maintenance_id = fields.Many2one(comodel_name='catalog.maintenance', string='Type Maintenance')
     

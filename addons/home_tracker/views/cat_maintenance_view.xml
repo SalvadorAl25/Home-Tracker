@@ -44,7 +44,7 @@
 
         <menuitem
             id="catalog_maintenance_menu"
-            name="name"
+            name="Catalog Maintenance"
             action="catalog_maintenance_action"
             parent="catalogs_menu"
             sequence="1"/>

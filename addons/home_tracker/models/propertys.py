@@ -27,7 +27,7 @@ DIR_FACADE = [
 
 class Propertys(models.Model):
 
-    _name = 'property'
+    _name = 'hometracker.property'
     _description = 'Propiedades'
 
     name_prop = fields.Char(string='Name Property')
@@ -56,9 +56,7 @@ class Propertys(models.Model):
     dir_facade = fields.Selection(selection=DIR_FACADE, string='Directory Facade')
     url_video = fields.Char(string='URL Video')
     commission= fields.Float(string='Commission')
-    plans = fields.Many2many(comodel_name='ir.attachment', string='Plans', attachment=True)
-    photos = fields.Many2many(comodel_name='ir.attachment', string='Photos', attachment=True)
-    documents = fields.Many2many(comodel_name='ir.attachment', string='Documents', attachment=True)
+    attachments = fields.Many2many(comodel_name='ir.attachment', string='Attachments', attachment=True)
     
     owner_property_id = fields.Many2one(comodel_name='res.partner', string='Owner Property')
     admin_property_id = fields.Many2one(comodel_name='res.partner', string='Admin. Property')
@@ -66,5 +64,5 @@ class Propertys(models.Model):
 
     property_insurance_ids = fields.One2many(comodel_name='insurance.policies', inverse_name='property_id', string='Property Insurance')
     maintenance_n_services_ids = fields.One2many(comodel_name='maintenance.n.services', inverse_name='property_id', string='Maintenance & Services')
-    contracts_ids = fields.One2many(comodel_name='contracts', inverse_name='property_id', string='Contracts')
+    contracts_ids = fields.One2many(comodel_name='hometracker.contracts', inverse_name='property_id', string='Contracts')
     

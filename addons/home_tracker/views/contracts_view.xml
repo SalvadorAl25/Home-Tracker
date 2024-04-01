@@ -3,19 +3,24 @@
 
     <data>
     
-        <record id="contracts_view_tree" model="ir.ui.view">
-            <field name="name">contracts.view.tree</field>
-            <field name="model">contracts</field>
+        <record id="hometracker_contracts_view_tree" model="ir.ui.view">
+            <field name="name">hometracker.contracts.view.tree</field>
+            <field name="model">hometracker.contracts</field>
             <field name="arch" type="xml">
                 <tree string="Contracts">
-                    
+                    <field name="name_t_contract" />
+                    <field name="date_contract" />
+                    <field name="property_id" />
+                    <field name="admin_id" />
+                    <field name="tenant_id" />
+                    <field name="endorsement_person_id" />
                 </tree>
             </field>
         </record>
 
-        <record id="contracts_view_form" model="ir.ui.view">
-            <field name="name">contracts.view.form</field>
-            <field name="model">contracts</field>
+        <record id="hometracker_contracts_view_form" model="ir.ui.view">
+            <field name="name">hometracker.contracts.view.form</field>
+            <field name="model">hometracker.contracts</field>
             <field name="arch" type="xml">
                 <form string="Contracts">
                     <sheet>
@@ -70,17 +75,17 @@
             </field>
         </record>
 
-        <record id="contracts_action" model="ir.actions.act_window">
-            <field name="name">Action Name</field>
-            <field name="res_model">contracts</field>
+        <record id="hometracker_contracts_action" model="ir.actions.act_window">
+            <field name="name">Contracts</field>
+            <field name="res_model">hometracker.contracts</field>
             <field name="view_mode">tree,form</field>
         </record>
 
         <menuitem
             id="contracts_menu"
             name="Contracts"
-            action="contracts_action"
-            parent="contracts_menu"
+            action="hometracker_contracts_action"
+            parent="contracts_main_menu"
             sequence="1"/>
     
     </data>

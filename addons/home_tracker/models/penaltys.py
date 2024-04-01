@@ -7,7 +7,7 @@ TYPES_PENALTIES = [
 
 class Penalties(models.Model):
 
-    _name = 'penalties'
+    _name = 'hometracker.penalties'
     _description = 'Penalties'
 
     type_pay_pen = fields.Selection(selection=TYPES_PENALTIES, string='Type Payment Penalty')

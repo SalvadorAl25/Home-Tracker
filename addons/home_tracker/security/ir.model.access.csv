@@ -1,9 +1,9 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_propertys,access.propertys,model_propertys,,1,1,1,1
+access_hometracker_property,access.hometracker.property,model_hometracker_property,,1,1,1,1
 access_catalog_maintenance,access.catalog.maintenance,model_catalog_maintenance,,1,1,1,1
-access_contracts,access.contracts,model_contracts,,1,1,1,1
+access_hometracker_contracts,access.hometracker.contracts,model_hometracker_contracts,,1,1,1,1
 access_insurance_policies,access.insurance.policies,model_insurance_policies,,1,1,1,1
 access_maintenance_n_services,access.maintenance.n.services,model_maintenance_n_services,,1,1,1,1
 access_payments_rent,access.payments.rent,model_payments_rent,,1,1,1,1
-access_penalties,access.penalties,model_penalties,,1,1,1,1
-access_tenant,access.tenant,model_tenant,,1,1,1,1
+access_hometracker_penalties,access.hometracker.penalties,model_hometracker_penalties,,1,1,1,1
+access_hometracker_tenant,access.hometracker.tenant,model_hometracker_tenant,,1,1,1,1

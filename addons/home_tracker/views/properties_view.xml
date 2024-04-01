@@ -3,9 +3,9 @@
 
     <data>
     
-        <record id="property_view_tree" model="ir.ui.view">
-            <field name="name">property.view.tree</field>
-            <field name="model">property</field>
+        <record id="hometracker_property_view_tree" model="ir.ui.view">
+            <field name="name">hometracker.property.view.tree</field>
+            <field name="model">hometracker.property</field>
             <field name="arch" type="xml">
                 <tree string="Property">
                     <field name="owner_property_id" />
@@ -21,9 +21,9 @@
             </field>
         </record>
 
-        <record id="property_view_kanban" model="ir.ui.view">
-            <field name="name">property.view.kanban</field>
-            <field name="model">property</field>
+        <record id="hometracker_property_view_kanban" model="ir.ui.view">
+            <field name="name">hometracker.property.view.kanban</field>
+            <field name="model">hometracker.property</field>
             <field name="arch" type="xml">
                 <kanban class="o_kanban_mobile">
                     <templates>
@@ -47,9 +47,9 @@
             </field>
         </record>
 
-        <record id="property_view_form" model="ir.ui.view">
-            <field name="name">property.view.form</field>
-            <field name="model">property</field>
+        <record id="hometracker_property_view_form" model="ir.ui.view">
+            <field name="name">hometracker.property.view.form</field>
+            <field name="model">hometracker.property</field>
             <field name="arch" type="xml">
                 <form string="Property">
                     <header>
@@ -86,7 +86,6 @@
                                 <field name="state_id" />
                                 <field name="country_id" />
                                 <field name="cp" />
-                                <field name="maps" />
                             </group>
                             <group string="Characteristics">
                                 <field name="edifices" />
@@ -109,16 +108,17 @@
                                 <field name="url_video" />
                             </group>
                         </group>
+                        <group>
+                            <field name="maps" />
+                        </group>
                         <notebook>
                             <page string="Attached Files">
-                                <field name="plans" />
-                                <field name="photos" />
-                                <field name="documents" />
+                                <field name="attachments" widget="many2many_binary"/>     <!--options="{'zoom': true}"-->
                             </page>
                             <page string="Property Insurance">
                                 <field name="property_insurance_ids"></field>
                             </page>
-                            <page string="Maintenance '&amp;' Services">
+                            <page string="Maintenance &amp; Services">
                                 <field name="maintenance_n_services_ids"></field>
                             </page>
                             <page string="Contracts">
@@ -132,7 +132,7 @@
 
         <record id="property_action" model="ir.actions.act_window">
             <field name="name">Properties</field>
-            <field name="res_model">property</field>
+            <field name="res_model">hometracker.property</field>
             <field name="view_mode">tree,form,kanban</field>
         </record>
     

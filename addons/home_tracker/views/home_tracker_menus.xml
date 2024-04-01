@@ -4,16 +4,20 @@
     <data>
 
         <menuitem
-            id="properties_menu"
+            id="home_tracker_menu"
+            name="Home Tracker"
+            sequence="2"/>
+
+        <menuitem
+            id="properties_main_menu"
             name="Properties"
             action="property_action"
             parent="home_tracker_menu"
             sequence="1"/>
 
         <menuitem
-            id="contracts_menu"
+            id="contracts_main_menu"
             name="Contracts"
-            action="action_id"
             parent="home_tracker_menu"
             sequence="2"/>
 
@@ -22,11 +26,6 @@
             name="Catalogs"
             parent="home_tracker_menu"
             sequence="3"/>
-    
-        <menuitem
-            id="home_tracker_menu"
-            name="Home Tracker"
-            sequence="2"/>
     
     </data>
     
