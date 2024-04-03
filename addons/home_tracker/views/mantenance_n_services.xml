@@ -62,6 +62,7 @@
         <menuitem
             id="maintenance_n_services_menu"
             name="Maintenance and Services"
+            groups="base.group_user"
             action="maintenance_n_services_action"
             parent="catalogs_menu"
             sequence="3"/>

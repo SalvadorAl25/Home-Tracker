@@ -1,7 +1,7 @@
 from odoo import api, models, fields, _
 
 class Tenant(models.Model):
-    _name = 'hometracker.tenant'
+    _name = 'home.tenant'
     _description = 'Tenant'
 
     proof_tax_situation = fields.Binary(string='Proof Tax Situation')
@@ -16,5 +16,5 @@ class Tenant(models.Model):
     tax_regimen_id = fields.Many2one(string='Tax Regimen', comodel_name='tax.regimen')
     company_id = fields.Many2one(string='Company', comodel_name='res.company')
     partner_id = fields.Many2one(string='Contact', comodel_name='res.partner')
-    contracts_ids = fields.One2many(comodel_name='hometracker.contracts', inverse_name='tenant_id', string='contracts')
+    contracts_ids = fields.One2many(comodel_name='home.contracts', inverse_name='tenant_id', string='contracts')
 

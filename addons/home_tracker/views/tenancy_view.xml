@@ -4,8 +4,8 @@
     <data>
 
         <record id="hometracker_tenant_view_tree" model="ir.ui.view">
-            <field name="name">hometracker.tenant.view.tree</field>
-            <field name="model">hometracker.tenant</field>
+            <field name="name">home.tenant.view.tree</field>
+            <field name="model">home.tenant</field>
             <field name="arch" type="xml">
                 <tree string="Tenants">
                     <field name="tenant_name" />
@@ -20,8 +20,8 @@
         </record>
 
         <record id="hometracker_tenant_view_form" model="ir.ui.view">
-            <field name="name">hometracker.tenant.view.form</field>
-            <field name="model">hometracker.tenant</field>
+            <field name="name">home.tenant.view.form</field>
+            <field name="model">home.tenant</field>
             <field name="arch" type="xml">
                 <form string="Tenant">
                     <sheet>
@@ -37,7 +37,7 @@
                                 <field name="tenant_last_name" />
                                 <field name="tenant_mother_last_name" />
                                 <field name="curp" />
-                                <field name="identification" />
+                                <field name="identification" widget="image" options="{'size': [400, 150], 'preview_image': 'identification'}"/>
                             </group>
                             <group>
                                 <field name="rfc" />
@@ -58,13 +58,14 @@
 
         <record id="tenant_action" model="ir.actions.act_window">
             <field name="name">Tenants</field>
-            <field name="res_model">hometracker.tenant</field>
+            <field name="res_model">home.tenant</field>
             <field name="view_mode">tree,form</field>
         </record>
     
         <menuitem
             id="tenants_menu"
             name="Tenants"
+            groups="base.group_user"
             action="tenant_action"
             parent="contracts_main_menu"
             sequence="2"/>

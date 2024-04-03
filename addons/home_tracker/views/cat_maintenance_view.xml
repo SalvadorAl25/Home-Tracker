@@ -45,6 +45,7 @@
         <menuitem
             id="catalog_maintenance_menu"
             name="Catalog Maintenance"
+            groups="base.group_user"
             action="catalog_maintenance_action"
             parent="catalogs_menu"
             sequence="1"/>

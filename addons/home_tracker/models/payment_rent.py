@@ -16,4 +16,4 @@ class PaymentsRent(models.Model):
     date_payment = fields.Float(string='Date Payment')
     amount = fields.Float(string='Amount')
     invoice_id = fields.Many2one(comodel_name='account.move', string='Invoice')
-    contract_id = fields.Many2one(comodel_name='hometracker.contracts', string='contract')
+    contract_id = fields.Many2one(comodel_name='home.contracts', string='contract')

@@ -4,8 +4,8 @@
     <data>
     
         <record id="hometracker_property_view_tree" model="ir.ui.view">
-            <field name="name">hometracker.property.view.tree</field>
-            <field name="model">hometracker.property</field>
+            <field name="name">home.property.view.tree</field>
+            <field name="model">home.property</field>
             <field name="arch" type="xml">
                 <tree string="Property">
                     <field name="owner_property_id" />
@@ -22,23 +22,29 @@
         </record>
 
         <record id="hometracker_property_view_kanban" model="ir.ui.view">
-            <field name="name">hometracker.property.view.kanban</field>
-            <field name="model">hometracker.property</field>
+            <field name="name">home.property.view.kanban</field>
+            <field name="model">home.property</field>
             <field name="arch" type="xml">
                 <kanban class="o_kanban_mobile">
+                    <field name="id"/>
+                    <field name="img_of_prop" />
                     <templates>
                         <t t-name="kanban-box">
-                            <div class="oe_kanban_global_click">
-                                <div class="oe_kanban_card">
-                                    <field name="owner_property_id" />
-                                    <field name="admin_property_id" />
-                                    <field name="name" />
-                                    <field name="country_id" />
-                                    <field name="state_id" />
-                                    <field name="cp" optional="show"/>
-                                    <field name="states" optional="show"/>
-                                    <field name="type_property" optional="show"/>
-                                    <field name="category_property" optional="show"/>
+                            <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
+                                <div class="o_kanban_image" >
+                                    <img class="" t-if="record.id.raw_value" t-att-alt="record.id.value" t-att-src="kanban_image('home.property', 'img_of_prop', record.id.raw_value)"/>
+                                </div>
+                                <div class="oe_kanban_details d-flex flex-column">
+                                    <strong class="o_kanban_record_title "><field name="name" /></strong>
+                                    <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
+                                    <ul>
+                                        <li>Owner Property: <field name="owner_property_id" /></li>
+                                        <li>Admin Property: <field name="admin_property_id" /></li>
+                                        <li>Country: <field name="country_id"/></li>
+                                        <li>
+                                            <t>Address: <field name="street" />, #<field name="num_ext"/>, <t t-if="record.num_int > 0"><field name="num_int"/>, </t><field name="colony" />, <field name="state_id" />, <field name="cp" /></t>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </t>
@@ -48,14 +54,20 @@
         </record>
 
         <record id="hometracker_property_view_form" model="ir.ui.view">
-            <field name="name">hometracker.property.view.form</field>
-            <field name="model">hometracker.property</field>
+            <field name="name">home.property.view.form</field>
+            <field name="model">home.property</field>
             <field name="arch" type="xml">
                 <form string="Property">
                     <header>
                         <field name="states" widget="statusbar" statusbar_visible="" />
                     </header>
                     <sheet>
+                        <div class="oe_button_box" name="button_box">
+                            <button type="object" class="oe_stat_button" icon="fa-pencil-square-o" name="new_contrat">
+                                <span class="o_stat_text">New Contract</span>
+                            </button>
+                        </div>
+                        <field name="img_of_prop" widget="image" class="oe_avatar" options="{'size': [200, 200], 'preview_image': 'img_of_prop'}" modifiers="{}"/>
                         <div class="oe_title">
                             <h1 class="mt0">
                                 <field name="name" placeholder="Property Name" />
@@ -76,9 +88,9 @@
                                 <field name="street_2" />
                                 <label string="" for="num_ext"/>
                                 <div class="o_address_format oe_left">
-                                    <label for="num_ext"/>
+                                    <label string="Num. Ext." for="num_ext"/>
                                     <field name="num_ext" class="col-3 mr-1"/>
-                                    <label for="num_int"/>
+                                    <label string="Num. Int." for="num_int"/>
                                     <field name="num_int" class="col-3"/>
                                 </div>
                                 <field name="colony" />
@@ -97,7 +109,8 @@
                                     <field name="height" class="col-3"/>
                                 </div>
                                 <field name="price_p_rent" />
-                                <field name="active" />
+                                <field name="currency_id" />
+                                <field name="active_prop" />
                                 <field name="type_property" />
                                 <field name="furnished" />
                                 <field name="quantity_brooms" />
@@ -132,18 +145,17 @@
 
         <record id="property_action" model="ir.actions.act_window">
             <field name="name">Properties</field>
-            <field name="res_model">hometracker.property</field>
-            <field name="view_mode">tree,form,kanban</field>
+            <field name="res_model">home.property</field>
+            <field name="view_mode">kanban,tree,form</field>
         </record>
 
         <menuitem
-            id="properties_menu"
+            id="properties_main_menu"
             name="Properties"
+            groups="base.group_user"
             action="property_action"
-            parent="properties_main_menu"
+            parent="home_tracker_menu"
             sequence="1"/>
     
     </data>
-    
-
 </odoo>

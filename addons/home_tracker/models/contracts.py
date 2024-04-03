@@ -8,7 +8,7 @@ TYPE_COMMISSION = [
 ]
 
 class Contracts(models.Model):
-    _name = 'hometracker.contracts'
+    _name = 'home.contracts'
     _description = 'Contratos'
 
     name_t_contract = fields.Char(string='Name Contract')
@@ -21,11 +21,11 @@ class Contracts(models.Model):
     mount_commission = fields.Float(string='Mount Commission')
     date_contract = fields.Date(string='Date Contract')
 
-    property_id = fields.Many2one(comodel_name='hometracker.property' ,string='Property')
+    property_id = fields.Many2one(comodel_name='home.property' ,string='Property')
     admin_id = fields.Many2one(related='property_id.admin_property_id', string='Admin Property')
     currency_id = fields.Many2one(related='property_id.currency_id', string='Currency')
-    tenant_id = fields.Many2one(comodel_name='hometracker.tenant', string='Tenant')
-    penalty_id = fields.Many2one(comodel_name='hometracker.penalty', string='Penalty')
+    tenant_id = fields.Many2one(comodel_name='home.tenant', string='Tenant')
+    penalty_id = fields.Many2one(comodel_name='home.penalties', string='Penalty')
     endorsement_person_id = fields.Many2one(comodel_name='res.partner', string='Endorsement Person')
 
     payments_ids= fields.One2many(comodel_name='payments.rent', inverse_name='contract_id', string='Payments')

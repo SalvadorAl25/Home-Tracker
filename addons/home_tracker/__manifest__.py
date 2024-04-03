@@ -13,6 +13,7 @@
     'depends': ['base','contacts','base_address_city', 'account'],     #,'website_google_map'
     'data': [
         'data/sequences.xml',
+        'data/tax.regimen.csv',
         'security/ir.model.access.csv',
         'views/home_tracker_menus.xml',
         'views/cat_maintenance_view.xml',
@@ -28,4 +29,5 @@
     'installable': True,
     'application': True,
     'auto_install': False,
+    'license': 'LGPL-3',
 }

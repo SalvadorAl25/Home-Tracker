@@ -13,4 +13,4 @@ class InsurancePolicies(models.Model):
     yearly_fee = fields.Float(string='Yearly Fee')
     deductible = fields.Float(string='Deductible')
 
-    property_id = fields.Many2one(comodel_name='hometracker.property', string='Property')
+    property_id = fields.Many2one(comodel_name='home.property', string='Property')

@@ -4,8 +4,8 @@
     <data>
     
         <record id="hometracker_penalties_view_tree" model="ir.ui.view">
-            <field name="name">hometracker.penalties.view.tree</field>
-            <field name="model">hometracker.penalties</field>
+            <field name="name">home.penalties.view.tree</field>
+            <field name="model">home.penalties</field>
             <field name="arch" type="xml">
                 <tree string="Penalties">
                     <field name="type_pay_pen" />
@@ -16,8 +16,8 @@
         </record>
 
         <record id="hometracker_penalties_view_form" model="ir.ui.view">
-            <field name="name">hometracker.penalties.view.form</field>
-            <field name="model">hometracker.penalties</field>
+            <field name="name">home.penalties.view.form</field>
+            <field name="model">home.penalties</field>
             <field name="arch" type="xml">
                 <form string="Penalties">
                     <sheet>
@@ -33,13 +33,14 @@
 
         <record id="penalties_action" model="ir.actions.act_window">
             <field name="name">Penalties</field>
-            <field name="res_model">hometracker.penalties</field>
+            <field name="res_model">home.penalties</field>
             <field name="view_mode">tree,form</field>
         </record>
 
         <menuitem
             id="penalties_menu"
             name="Penalties"
+            groups="base.group_user"
             action="penalties_action"
             parent="catalogs_menu"
             sequence="4"/>
