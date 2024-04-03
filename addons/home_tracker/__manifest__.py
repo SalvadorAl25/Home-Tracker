@@ -10,8 +10,9 @@
     'website': "",
     'category': 'Management',
 
-    'depends': ['base','contacts'],
+    'depends': ['base','contacts','base_address_city', 'account'],     #,'website_google_map'
     'data': [
+        'data/sequences.xml',
         'security/ir.model.access.csv',
         'views/home_tracker_menus.xml',
         'views/cat_maintenance_view.xml',

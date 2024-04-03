@@ -10,11 +10,11 @@
                 <tree string="Property">
                     <field name="owner_property_id" />
                     <field name="admin_property_id" />
-                    <field name="name_prop" />
+                    <field name="name" />
                     <field name="country_id" />
                     <field name="state_id" />
                     <field name="cp" optional="show"/>
-                    <field name="state" optional="show"/>
+                    <field name="states" optional="show"/>
                     <field name="type_property" optional="show"/>
                     <field name="category_property" optional="show"/>
                 </tree>
@@ -32,11 +32,11 @@
                                 <div class="oe_kanban_card">
                                     <field name="owner_property_id" />
                                     <field name="admin_property_id" />
-                                    <field name="name_prop" />
+                                    <field name="name" />
                                     <field name="country_id" />
                                     <field name="state_id" />
                                     <field name="cp" optional="show"/>
-                                    <field name="state" optional="show"/>
+                                    <field name="states" optional="show"/>
                                     <field name="type_property" optional="show"/>
                                     <field name="category_property" optional="show"/>
                                 </div>
@@ -53,12 +53,12 @@
             <field name="arch" type="xml">
                 <form string="Property">
                     <header>
-                        <field name="state" widget="statusbar" statusbar_visible="" />
+                        <field name="states" widget="statusbar" statusbar_visible="" />
                     </header>
                     <sheet>
                         <div class="oe_title">
                             <h1 class="mt0">
-                                <field name="name_prop" placeholder="Property Name" />
+                                <field name="name" placeholder="Property Name" />
                             </h1>
                         </div>
                         <br/>
@@ -113,7 +113,7 @@
                         </group>
                         <notebook>
                             <page string="Attached Files">
-                                <field name="attachments" widget="many2many_binary"/>     <!--options="{'zoom': true}"-->
+                                <field name="attachments" widget="many2many_binary"/>
                             </page>
                             <page string="Property Insurance">
                                 <field name="property_insurance_ids"></field>
@@ -135,6 +135,13 @@
             <field name="res_model">hometracker.property</field>
             <field name="view_mode">tree,form,kanban</field>
         </record>
+
+        <menuitem
+            id="properties_menu"
+            name="Properties"
+            action="property_action"
+            parent="properties_main_menu"
+            sequence="1"/>
     
     </data>
     
