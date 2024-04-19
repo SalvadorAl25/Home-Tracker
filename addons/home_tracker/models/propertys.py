@@ -81,7 +81,6 @@ class HomeProperties(models.Model):
             city_id = vals.get('city_id')
             n = self._name_create_seq(country_id, state_id, city_id)
             name = n + '/' + str(name_seq)
-            _logger.info(f"***** name: {name}")
             vals['name'] = name 
             vals['states'] = 'registered'
         return super(HomeProperties, self).create(vals)

@@ -63,7 +63,7 @@
                     </header>
                     <sheet>
                         <div class="oe_button_box" name="button_box">
-                            <button type="object" class="oe_stat_button" icon="fa-pencil-square-o" name="new_contrat">
+                            <button type="object" class="oe_stat_button" icon="fa-pencil-square-o" name="new_contrat" attrs="{'invisible': [('states', '=', 'registered')]}">
                                 <span class="o_stat_text">New Contract</span>
                             </button>
                         </div>
